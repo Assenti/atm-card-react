@@ -1,0 +1,120 @@
+@font-face {
+    font-family: 'CreditCardFont';
+    src: url('./CREDCARD.ttf');
+}
+
+.component-atm-card-container {
+
+}
+
+.component-atm-card {
+    font-family: 'CreditCardFont', sans-serif;
+    border-radius: 12px;
+    font-weight: normal;
+    border: .5px solid #ccc;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2.5%;
+    background-color: #ccc;
+    position: relative;
+    animation: rotateATMCard .6s ease-in-out;
+}
+
+.component-atm-card.back div.component-atm-card-holder {
+    padding-top: 10%;
+}
+
+.component-atm-card-container.lifted div.component-atm-card {
+    box-shadow: 0 1px 2px rgba(0,0,0, .4);
+}
+
+.component-atm-card-number {
+    font-family: 'CreditCardFont', sans-serif;
+    font-weight: normal;
+    letter-spacing: 1.5px;
+    color: #fff;
+    margin: 10px 0;
+    text-shadow: .5px .5px gray;
+}
+
+.component-atm-card-number i {
+    display: none;
+    cursor: pointer;
+    margin-left: 3%;
+    position: absolute;
+}
+
+.component-atm-card-number:not(.edit):hover i {
+    display: inline-block;
+    transition: all .3s ease-in-out;
+}
+
+.component-atm-card-number input {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 6px;
+    width: 90%;
+    font-family: 'CreditCardFont', sans-serif;
+    font-weight: normal;
+    letter-spacing: 1.5px;
+    outline: none;
+    border: 1px solid #ccc;
+    caret-color: #1976D2;
+}
+
+.component-atm-card-number input:focus {
+    border-color: #1976D2;
+    box-shadow: 0 1px 5px #1976D2;
+    transition: all .2s ease-in-out;
+}
+
+.component-atm-card-holder {
+    font-family: 'CreditCardFont', sans-serif;
+    font-weight: normal;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    padding-bottom: 5px;
+    color: #fff;
+    text-shadow: .5px .5px gray;
+}
+
+.component-atm-card-date {
+    font-family: 'CreditCardFont', sans-serif;
+    text-align: end;
+    font-weight: normal;
+    letter-spacing: 1.5px;
+    color: #fff;
+    text-shadow: .5px .5px gray;
+}
+
+.component-atm-card-system-logo {
+    text-align: end;
+    position: absolute;
+    bottom: 2%;
+    right: 2%;
+}
+
+.component-atm-card-controls {
+    text-align: end;
+    position: absolute;
+    top: 2%;
+    right: 2%;
+    cursor: pointer;
+}
+
+.component-atm-card-magnet {
+    position: absolute;
+    width: 100%;
+    background-color: #2d2d2d;
+    top: 20%;
+    left: 0;
+}
+
+@keyframes rotateATMCard {
+    0% { transform: rotateY(3.142rad); opacity: .3;}
+    100% { transform: rotateY(0); opacity: 1;}
+}

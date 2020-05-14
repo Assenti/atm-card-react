@@ -1,0 +1,36 @@
+{
+  "name": "atm-card",
+  "version": "1.0.0",
+  "private": false,
+  "description": "ATM Card React component",
+  "main": "lib/index.js",
+  "module": "lib/index.js",
+  "typings": "index.d.ts",
+  "scripts": {
+    "build": "rm -rf ./lib && tsc"
+  },
+  "author": {
+    "name": "Asset Sultanov",
+    "email": "asset.sultan@gmail.com",
+    "url": "https://github.com/assenti"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@types/react": "^16.9.35",
+    "@types/react-dom": "^16.9.8",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "typescript": "^3.9.2"
+  },
+  "keywords": [
+    "component",
+    "react",
+    "react-component",
+    "atm-card",
+    "credit-card"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Assenti/atm-card.git"
+  }
+}
