@@ -49,8 +49,8 @@
     "url": "https://github.com/Assenti/atm-card-react.git"
   },
   "files": [
-    "styles",
+    "src/styles",
     "lib",
-    "index.d.ts"
+    "src/index.d.ts"
   ]
 }

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import ATMCard from './src/component';
+import ATMCard from './component';
 
 export declare interface IconProps {
   size?: number,
@@ -7,9 +7,10 @@ export declare interface IconProps {
 }
 
 export declare type ATMCardScale = 0.5 | 0.6 | 0.7 | 0.8 | 0.9 | 1;
+export declare type ATMCardSystem = 'mastercard' | 'visa' | 'maestro';
 
 export declare interface ATMCardProps {
-  systemLogo?: React.ReactNode,
+  system?: ATMCardSystem,
   holderName?: string,
   number?: string,
   date?: string,
@@ -25,7 +26,7 @@ export declare interface ATMCardProps {
 }
 
 export declare interface MainCardDataProps {
-  systemLogo?: React.ReactNode,
+  system?: ATMCardSystem,
   holderName: string,
   number: string,
   date: string,

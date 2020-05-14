@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Rotate } from './icons';
 import { cvvMask } from './utils';
-import { BackCardDataProps } from '../..';
+import { BackCardDataProps } from '../index.d';
 
 const BackCardData = (props: BackCardDataProps) => {
     const [main, setMain] = React.useState<boolean>(false);

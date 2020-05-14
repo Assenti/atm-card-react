@@ -3,7 +3,7 @@ import '../styles/index.css';
 import { strinfigyClassObject } from './utils';
 import MainCardData from './MainCardData';
 import BackCardData from './BackCardData';
-import { ATMCardProps } from '../..';
+import { ATMCardProps } from '../index.d';
 
 const ATMCard = React.forwardRef((props: ATMCardProps, ref) => {
     const [main, setMain] = React.useState<boolean>(true);
@@ -29,7 +29,7 @@ const ATMCard = React.forwardRef((props: ATMCardProps, ref) => {
                 setDate(value);
                 break;
             case 'holderName':
-                setHolderName(value);
+                setHolderName(value ? value.toUpperCase() : '');
                 break;
             case 'cvv':
                 setCvv(value);
@@ -45,6 +45,7 @@ const ATMCard = React.forwardRef((props: ATMCardProps, ref) => {
             ref={(ref as any)}>
             {main ? 
             <MainCardData
+                system={props.system}
                 image={props.bgImage}
                 bgColor={props.bgColor}
                 hideDigits={props.hideDigits}

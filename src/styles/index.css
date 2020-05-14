@@ -43,20 +43,31 @@
     text-shadow: .5px .5px gray;
 }
 
-.component-atm-card-number i {
+.component-atm-card-number i,
+.component-atm-card-holder i,
+.component-atm-card-date i {
     display: none;
     cursor: pointer;
     margin-left: 3%;
     position: absolute;
 }
 
-.component-atm-card-number:not(.edit):hover i {
+.component-atm-card-date i {
+    margin-left: 2%;
+}
+
+.component-atm-card-number:not(.edit):hover i,
+.component-atm-card-holder:not(.edit):hover i,
+.component-atm-card-date:not(.edit):hover i {
     display: inline-block;
     transition: all .3s ease-in-out;
 }
 
-.component-atm-card-number input {
+.component-atm-card-number input,
+.component-atm-card-holder input,
+.component-atm-card-date input {
     padding: 5px 10px;
+    padding-bottom: 2px;
     border: none;
     border-radius: 6px;
     width: 90%;
@@ -65,12 +76,26 @@
     letter-spacing: 1.5px;
     outline: none;
     border: 1px solid #ccc;
-    caret-color: #1976D2;
+    background-color: rgba(255, 255, 255, .7);
+    /* caret-color: #1976D2; */
 }
 
-.component-atm-card-number input:focus {
-    border-color: #1976D2;
-    box-shadow: 0 1px 5px #1976D2;
+.component-atm-card-holder input,
+.component-atm-card-date input {
+    padding-top: 0;
+    padding-bottom: 5px;
+}
+
+.component-atm-card-date input {
+    padding-top: 3px;
+    padding-bottom: 2px;
+}
+
+.component-atm-card-number input:focus,
+.component-atm-card-holder input:focus,
+.component-atm-card-date input:focus {
+    /* border-color: #1976D2; */
+    /* box-shadow: 0 1px 5px #1976D2; */
     transition: all .2s ease-in-out;
 }
 
@@ -87,6 +112,7 @@
 .component-atm-card-date {
     font-family: 'CreditCardFont', sans-serif;
     text-align: end;
+    padding-right: 10%;
     font-weight: normal;
     letter-spacing: 1.5px;
     color: #fff;
@@ -97,7 +123,7 @@
     text-align: end;
     position: absolute;
     bottom: 2%;
-    right: 2%;
+    right: 3%;
 }
 
 .component-atm-card-controls {
