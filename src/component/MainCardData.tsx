@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { creditMask } from './utils';
 import { Rotate, Edit } from './icons';
-import { MainCardDataProps } from '..';
+import { MainCardDataProps } from '../..';
 
 const MainCardData = (props: MainCardDataProps) => {
     const [numberEdit, setNumberEdit] = React.useState<boolean>(false);

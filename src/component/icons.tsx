@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { IconProps } from '..';
+import { IconProps } from '../..';
 
 export const Rotate = (props: IconProps) => {
     return (

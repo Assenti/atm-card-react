@@ -3,7 +3,7 @@ import '../styles/index.css';
 import { strinfigyClassObject } from './utils';
 import MainCardData from './MainCardData';
 import BackCardData from './BackCardData';
-import { ATMCardProps } from '..';
+import { ATMCardProps } from '../..';
 
 const ATMCard = React.forwardRef((props: ATMCardProps, ref) => {
     const [main, setMain] = React.useState<boolean>(true);

@@ -7,8 +7,9 @@
   "module": "lib/index.js",
   "typings": "index.d.ts",
   "scripts": {
-    "build": "rm -rf ./lib && tsc",
-    "compile": "rm -rf ./dist && npx webpack"
+    "compile": "rm -rf ./lib && tsc",
+    "start": "react-scripts start",
+    "build": "react-scripts build"
   },
   "author": {
     "name": "Asset Sultanov",
@@ -19,15 +20,22 @@
   "devDependencies": {
     "@types/react": "^16.9.35",
     "@types/react-dom": "^16.9.8",
-    "css-loader": "^3.5.3",
-    "file-loader": "^6.0.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "style-loader": "^1.2.1",
-    "ts-loader": "^7.0.4",
-    "typescript": "^3.9.2",
-    "webpack": "^4.43.0",
-    "webpack-cli": "^3.3.11"
+    "react-scripts": "^3.4.1",
+    "typescript": "^3.9.2"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   },
   "keywords": [
     "component",

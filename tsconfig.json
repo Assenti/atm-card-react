@@ -2,7 +2,7 @@
   "compilerOptions": {
     "outDir": "./lib",
     "target": "es2015",
-    "module": "commonjs",
+    "module": "esnext",
     "noImplicitAny": true,
     "strictNullChecks": true,
     "removeComments": true,
@@ -12,11 +12,27 @@
     "typeRoots": [
       "index.d.ts",
       "node_modules/@types"
-    ]
+    ],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true
   },
   "include": [
-    "./component/**/*.tsx",
-    "./component/**/*.ts", "index.d.ts"
+    "src/component/**/*.tsx",
+    "src/component/**/*.ts",
+    "index.d.ts"
   ],
   "exclude": [
     "node_modules"
