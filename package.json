@@ -1,6 +1,6 @@
 {
   "name": "atm-card",
-  "version": "1.0.0",
+  "version": "0.0.3",
   "private": false,
   "description": "ATM Card React component",
   "main": "lib/index.js",
