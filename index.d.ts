@@ -1,5 +1,5 @@
 import * as React from 'react';
-import ATMCard from './src';
+import ATMCard from './component';
 
 export declare interface IconProps {
   size?: number,
