@@ -7,10 +7,10 @@ export declare interface IconProps {
 }
 
 export declare type ATMCardScale = 0.5 | 0.6 | 0.7 | 0.8 | 0.9 | 1;
-export declare type ATMCardSystem = 'mastercard' | 'visa' | 'maestro';
 
 export declare interface ATMCardProps {
-  system?: ATMCardSystem,
+  system?: string,
+  bankLogo?: React.ReactNode,
   holderName?: string,
   number?: string,
   date?: string,
@@ -22,11 +22,13 @@ export declare interface ATMCardProps {
   bgColor?: string,
   id?: string,
   lifted?: boolean,
-  className?: string
+  className?: string,
+  onChange?: Function
 }
 
 export declare interface MainCardDataProps {
-  system?: ATMCardSystem,
+  system?: string,
+  bankLogo?: React.ReactNode,
   holderName: string,
   number: string,
   date: string,
@@ -46,6 +48,7 @@ export declare interface BackCardDataProps {
   scale?: ATMCardScale,
   bgColor?: string,
   systemLogo?: React.ReactNode,
+  onChange: Function,
   onRotate: Function
 }
 

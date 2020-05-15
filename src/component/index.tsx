@@ -23,15 +23,19 @@ const ATMCard = React.forwardRef((props: ATMCardProps, ref) => {
     const handleChange = (value: string, field: string) => {
         switch (field) {
             case 'number':
+                if (props.onChange) props.onChange({ number: value, date, holder: holderName, cvv })
                 setNumber(value);
                 break;
             case 'date':
+                if (props.onChange) props.onChange({ number, date: value, holder: holderName, cvv })
                 setDate(value);
                 break;
             case 'holderName':
+                if (props.onChange) props.onChange({ number, date, holder: value, cvv })
                 setHolderName(value ? value.toUpperCase() : '');
                 break;
             case 'cvv':
+                if (props.onChange) props.onChange({ number, date, holder: holderName, cvv: value })
                 setCvv(value);
                 break;
             default:
@@ -60,6 +64,7 @@ const ATMCard = React.forwardRef((props: ATMCardProps, ref) => {
                 onRotate={handleRotate}
                 dataColor={props.dataColor}
                 cvv={cvv}
+                onChange={handleChange}
                 image={props.bgImage}
                 bgColor={props.bgColor}
                 scale={props.scale}/>}

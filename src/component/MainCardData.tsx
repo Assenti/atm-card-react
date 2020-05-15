@@ -1,7 +1,10 @@
 import * as React from 'react';
 import { creditMask } from './utils';
-import { Rotate, Edit, MasterCardLogo, VisaLogo, MaestroLogo } from './icons';
+import { Rotate, Edit, MasterCardLogo, VisaLogo, MaestroLogo, AmericanExpressLogo, JCBLogo, DinersClubLogo, MirLogo, Chip } from './icons';
 import { MainCardDataProps } from '../index.d';
+import DateField from './DateField';
+import NumberField from './NumberField';
+import HolderField from './HolderField';
 
 const MainCardData = (props: MainCardDataProps) => {
     const card = React.useRef<any>(null);
@@ -23,7 +26,15 @@ const MainCardData = (props: MainCardDataProps) => {
             case 'visa':
                 return <VisaLogo size={80 * (props.scale ? props.scale : 1)}/>;
             case 'maestro':
-                return <MaestroLogo size={65 * (props.scale ? props.scale : 1)}/>
+                return <MaestroLogo size={65 * (props.scale ? props.scale : 1)}/>;
+            case 'americanexpress':
+                return <AmericanExpressLogo size={100 * (props.scale ? props.scale : 1)}/>;
+            case 'jcb':
+                return <JCBLogo size={70 * (props.scale ? props.scale : 1)}/>;
+            case 'dinersclub':
+                return <DinersClubLogo size={70 * (props.scale ? props.scale : 1)}/>;
+            case 'mir':
+                return <MirLogo size={100 * (props.scale ? props.scale : 1)}/>;
             default:
                 return null;
         }
@@ -47,65 +58,37 @@ const MainCardData = (props: MainCardDataProps) => {
                 width: 430 * (props.scale ? props.scale : 1),
                 height: 270 * (props.scale ? props.scale : 1)
             }}>
+            <div className="component-atm-card-bank">{props.bankLogo}</div>
             <div className="component-atm-card-controls">
                 <i onClick={() => props.onRotate()}>
                     <Rotate size={34 * (props.scale ? props.scale : 1)} color={props.dataColor ? props.dataColor : ''}/>
                 </i>
             </div>
-            <div className={numberEdit ? 'component-atm-card-number edit' : 'component-atm-card-number'} 
-                style={{ 
-                    fontSize: 25 * (props.scale ? props.scale : 1),
-                    color: props.dataColor ? props.dataColor : '' 
-                }}>{
-                    !numberEdit ? 
-                    creditMask(props.number, props.hideDigits) : 
-                    <input 
-                        style={{ fontSize: 25 * (props.scale ? props.scale : 1) }}
-                        value={props.number}
-                        maxLength={16}
-                        onBlur={() => setNumberEdit(false)}
-                        onChange={(e: React.ChangeEvent<HTMLInputElement>) => props.onChange(e.target.value, 'number')}/>
-                }
-                <i onClick={() => setNumberEdit(true)}>
-                    <Edit size={26 * (props.scale ? props.scale : 1)} color={props.dataColor ? props.dataColor : ''}/>
-                </i>
-            </div>
-            <div className={holderEdit ? 'component-atm-card-holder edit' : 'component-atm-card-holder'} 
-                style={{ 
-                    fontSize: 25 * (props.scale ? props.scale : 1),
-                    color: props.dataColor ? props.dataColor : '' 
-                }}>{!holderEdit ?
-                    props.holderName :
-                    <input 
-                        style={{ fontSize: 25 * (props.scale ? props.scale : 1) }}
-                        value={props.holderName}
-                        onBlur={() => setHolderEdit(false)}
-                        onChange={(e: React.ChangeEvent<HTMLInputElement>) => props.onChange(e.target.value, 'holderName')}/>
-                    }
-                <i onClick={() => setHolderEdit(true)}>
-                    <Edit size={22 * (props.scale ? props.scale : 1)} color={props.dataColor ? props.dataColor : ''}/>
-                </i>
-            </div>
-            <div className={dateEdit ? 'component-atm-card-date edit' : 'component-atm-card-date'} 
-                style={{ 
-                    fontSize: 18 * (props.scale ? props.scale : 1),
-                    color: props.dataColor ? props.dataColor : ''
-                }}>{!dateEdit ?
-                    props.date :
-                    <input 
-                        style={{ 
-                            fontSize: 18 * (props.scale ? props.scale : 1),
-                            width: 80 * (props.scale ? props.scale : 1)
-                        }}
-                        value={props.date}
-                        maxLength={5}
-                        onBlur={() => setDateEdit(false)}
-                        onChange={(e: React.ChangeEvent<HTMLInputElement>) => props.onChange(e.target.value, 'date')}/>
-                }
-                <i onClick={() => setDateEdit(true)}>
-                    <Edit size={22 * (props.scale ? props.scale : 1)} color={props.dataColor ? props.dataColor : ''}/>
-                </i>
-            </div>
+            
+            <NumberField
+                hideDigits={props.hideDigits}
+                number={props.number}
+                scale={props.scale}
+                dataColor={props.dataColor}
+                onChange={props.onChange}
+                numberEdit={numberEdit}
+                onNumberEdit={(flag: boolean) => setNumberEdit(flag)}/>
+
+            <HolderField
+                holderName={props.holderName}
+                onHolderEdit={(flag: boolean) => setHolderEdit(flag)}
+                holderEdit={holderEdit}
+                scale={props.scale}
+                dataColor={props.dataColor}
+                onChange={props.onChange}/>
+
+            <DateField
+                date={props.date}
+                onChange={props.onChange}
+                scale={props.scale}
+                dateEdit={dateEdit}
+                onDateEdit={(flag: boolean) => setDateEdit(flag)} 
+                dataColor={props.dataColor}/>
             <div className="component-atm-card-system-logo">{getSystemLogo()}</div>
         </div>
     )

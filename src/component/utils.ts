@@ -1,6 +1,6 @@
 export const creditMask = (value: string, hidden: boolean = false) => {
     if (value) {
-        if (hidden) return `${value.slice(0,4)} **** **** ${value.slice(12,16)}`;
+        if (hidden) return `${value.slice(0,4)}  ****  ****  ${value.slice(12,16)}`;
         return `${value.slice(0,4)} ${value.slice(4,8)} ${value.slice(8,12)} ${value.slice(12,16)}`;
     } else {
         return '_';
