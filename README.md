@@ -15,7 +15,7 @@
 |  Card usage samples | Card usage samples  |  
 | - | - | 
 | ![Alt](https://i.ibb.co/NnZBvT8/Screen-Shot-2020-05-16-at-23-25-19.png) | ![Alt](https://i.ibb.co/dMFHNrX/Screen-Shot-2020-05-16-at-23-25-33.png) 
-| ![Alt](https://i.ibb.co/XzmV7YX/Screen-Shot-2020-05-16-at-23-26-07.png) | ![Alt](https://i.ibb.co/3sPsGb5/Screen-Shot-2020-05-16-at-23-25-43.png) |
+| ![Alt](https://i.ibb.co/h99PGJc/Screen-Shot-2020-05-17-at-01-17-25.png) | ![Alt](https://i.ibb.co/3sPsGb5/Screen-Shot-2020-05-16-at-23-25-43.png) |
 
 
 ## Install
