@@ -35,7 +35,7 @@
 ```jsx
 // Functional component example
 import React, { useState } from 'react';
-import ATMCard from 'atm-card-react';
+import { ATMCard } from 'atm-card-react';
 
 function App() {
     const [number, setNumber] = useState<string>('');
