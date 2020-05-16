@@ -10,6 +10,18 @@ const DateField = (props: any) => {
         }
     }
 
+    const renderMonth = () => {
+        return !!props.month.toString() ? 
+            (props.month.toString().length < 2 ? `0${props.month}` : props.month)
+            : '00'
+    }
+
+    const renderYear = () => {
+        return !!props.year.toString() ? 
+            (props.year.toString().length < 2 ? `0${props.year}` : props.year)
+            : '00'
+    }
+
     React.useEffect(() => {
         if (month.toString().length === 2) onMonthEdit(false)
         if (year.toString().length === 2) onYearEdit(false)
@@ -26,7 +38,7 @@ const DateField = (props: any) => {
             <div className="expired-dates">
                 {!props.monthEdit ? 
                 <span onClick={() => props.onMonthEdit(true)}>
-                    {!!props.month.toString() ? props.month : '00'}
+                    {renderMonth()}
                 </span> :
                 <InputComponent
                     width={34 * (props.scale ? props.scale : 1)}
@@ -40,7 +52,7 @@ const DateField = (props: any) => {
                     onChange={(value: any) => props.onChange(value, 'month')}/>}
                 /
                 {!props.yearEdit ?
-                <span onClick={() => props.onYearEdit(true)}>{props.year}</span> :
+                <span onClick={() => props.onYearEdit(true)}>{renderYear()}</span> :
                 <InputComponent
                     width={34 * (props.scale ? props.scale : 1)}
                     fontSize={16 * (props.scale ? props.scale : 1)}

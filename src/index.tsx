@@ -44,7 +44,7 @@ const App: React.FC = () => {
             </p>
             <ATMCard
                 expiredYear={22}
-                expiredMonth={11}
+                expiredMonth={1}
                 cvv="019"
                 bank={<BankLogo/>}
                 bgImage={Image}

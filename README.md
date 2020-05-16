@@ -59,11 +59,11 @@ export default App;
 ## Props
 | Prop | Type | Value | Description |
 | --- | --- | --- | --- |
-| number | string | 1234123412341234 | ATM Card number (PAN) |
-| expiredMonth | string | 01 |ATM Card expired month |
-| expiredYear | string | 01 | ATM Card expired year |
+| number | string | 1234123412341234 | ATM Card number (PAN) (16 digits) |
+| expiredMonth | number | 1 |ATM Card expired month (2 digits)|
+| expiredYear | number | 22 | ATM Card expired year (2 digits)|
 | holder | string | John Doe |ATM Card holder name |
-| cvv | string | 000 | ATM Card cvv/cvv2 code |
+| cvv | string | 000 | ATM Card cvv/cvv2 code (3 digits)|
 | bank | ReactNode | | ATM Card bank issuer data |
 | system | string | ENUM | mastercard, visa, maestro, americanexpress, jcb, dinnersclub, mir | ATM Card payment system |
 | hideDigits | boolean | true/false | Hide ATM Card number |
