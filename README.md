@@ -68,7 +68,7 @@ export default App;
 | system | string | ENUM | mastercard, visa, maestro, americanexpress, jcb, dinnersclub, mir | ATM Card payment system |
 | hideDigits | boolean | true/false | Hide ATM Card number |
 | onChange | function | | return { cvv, holder, month, number, year } |
-| fontFamily | string | | Set custom Font |
+| fontFamily | string | | Set custom Font (as default used CREDITCARD font, see below about usage license) |
 | numberFontSize | number | | Set ATM Card number (PAN) custom font size |
 | scale | number | 0 - 1 | Set ATM Card scale |
 | dark | boolean | true/false | Dark mode (applied only for back side magnet) |
