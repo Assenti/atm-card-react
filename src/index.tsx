@@ -1,6 +1,7 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import ATMCard from './component';
+import Image from './image.jpg';
 
 const App: React.FC = () => {
     const systems = ['mastercard','maestro','visa','americanexpress','jcb','dinersclub','mir'];
@@ -8,10 +9,12 @@ const App: React.FC = () => {
     const [scale, setScale] = React.useState<any>(1);
     const [system, setSystem] = React.useState<string>(systems[0]);
 
+    const BankLogo = () => <h1 style={{ transform: `scale(${scale})`, fontFamily: 'Arial', color: 'white' }}>Cool Bank Logo</h1>;
+
     return (
         <div style={{ 
             width: '100%',
-            height: '100vh',
+            minHeight: '100vh',
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
@@ -42,10 +45,35 @@ const App: React.FC = () => {
             </div>
             <br/>
             <ATMCard
-                number="1234567890101112"
-                holderName="asset sultanov"
-                date="01/20"
+                expiredYear={22}
+                expiredMonth={11}
                 cvv="019"
+                bank={<BankLogo/>}
+                bgImage={Image}
+                lifted
+                system={system}
+                scale={scale}
+                onChange={(data: any) => console.log(data)}/>
+            <br/>
+            <ATMCard
+                expiredYear={22}
+                expiredMonth={11}
+                cvv="019"
+                bank={<BankLogo/>}
+                hideDigits
+                bgColor="#2d2d2d"
+                dataColor="silver"
+                dark
+                lifted
+                system={system}
+                scale={scale}
+                onChange={(data: any) => console.log(data)}/>
+            <br/>
+            <ATMCard
+                expiredYear={22}
+                expiredMonth={11}
+                cvv="019"
+                bank={<BankLogo/>}
                 hideDigits
                 lifted
                 system={system}

@@ -42,7 +42,8 @@ const BackCardData = (props: BackCardDataProps) => {
                     <Rotate size={34 * (props.scale ? props.scale : 1)} color={props.dataColor ? props.dataColor : ''}/>
                 </i>
             </div>
-            <div className="component-atm-card-magnet" style={{ height: 60 * (props.scale ? props.scale : 1)}}/>
+            <div className={props.dark ? 'component-atm-card-magnet dark' : 'component-atm-card-magnet'} 
+                style={{ height: 60 * (props.scale ? props.scale : 1)}}/>
             <div className="component-atm-card-bank-back">{props.bankLogo}</div>
             <div className="component-atm-card-cvv"
                 style={{ 

@@ -9,12 +9,14 @@ const MainCardData = (props: MainCardDataProps) => {
     const card = React.useRef<any>(null);
     const [numberEdit, setNumberEdit] = React.useState<boolean>(false);
     const [holderEdit, setHolderEdit] = React.useState<boolean>(false);
-    const [dateEdit, setDateEdit] = React.useState<boolean>(false);
+    const [monthEdit, setMonthEdit] = React.useState<boolean>(false);
+    const [yearEdit, setYearEdit] = React.useState<boolean>(false);
 
     const handleClick = (e: any) => {
         if (card.current.contains(e.target)) return;
         setNumberEdit(false);
-        setDateEdit(false);
+        setMonthEdit(false);
+        setYearEdit(false);
         setHolderEdit(false);
     }
 
@@ -61,11 +63,14 @@ const MainCardData = (props: MainCardDataProps) => {
                 onChange={props.onChange}/>
 
             <DateField
-                date={props.date}
+                year={props.year}
+                month={props.month}
                 onChange={props.onChange}
                 scale={props.scale}
-                dateEdit={dateEdit}
-                onDateEdit={(flag: boolean) => setDateEdit(flag)} 
+                monthEdit={monthEdit}
+                yearEdit={yearEdit}
+                onMonthEdit={(flag: boolean) => setMonthEdit(flag)} 
+                onYearEdit={(flag: boolean) => setYearEdit(flag)} 
                 dataColor={props.dataColor}/>
             <div className="component-atm-card-system-logo">{props.system}</div>
         </div>

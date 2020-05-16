@@ -2,34 +2,53 @@ import * as React from 'react';
 import InputComponent from './InputComponent';
 
 const DateField = (props: any) => {
+    const { month, year } = props;
     const handleKeyPress = (e: React.KeyboardEvent) => {
-        if (e.key === 'Enter') props.onDateEdit(false)
+        if (e.key === 'Enter') {
+            props.onYearEdit(false)
+            props.onMonthEdit(false)
+        }
     }
 
     React.useEffect(() => {
-        if (props.date.length === 5) props.onDateEdit(false)
-    }, [props.date])
+        if (month.toString().length === 2) props.onMonthEdit(false)
+        if (year.toString().length === 2) props.onYearEdit(false)
+    }, [month, year])
 
     return (
         <div className="component-atm-card-date" 
             style={{ 
-                fontSize: 18 * (props.scale ? props.scale : 1),
+                fontSize: 16 * (props.scale ? props.scale : 1),
                 color: props.dataColor ? props.dataColor : ''
             }}>
             <div style={{ fontSize: 12  * (props.scale ? props.scale : 1) }}>VALID THRU</div>
-            {!props.dateEdit ?
-                <span onClick={() => props.onDateEdit(true)}>{props.date}</span> :
+            <div className="expired-dates">
+                {!props.monthEdit ? 
+                <span onClick={() => props.onMonthEdit(true)}>
+                    {!!props.month.toString() ? props.month : '00'}
+                </span> :
                 <InputComponent
-                    width={80 * (props.scale ? props.scale : 1)}
-                    fontSize={18 * (props.scale ? props.scale : 1)}
-                    value={props.date}
+                    width={34 * (props.scale ? props.scale : 1)}
+                    fontSize={16 * (props.scale ? props.scale : 1)}
+                    value={props.month}
                     scale={props.scale}
-                    type="text"
+                    type="number"
                     onKeyPress={handleKeyPress}
-                    onBlur={() => props.onDateEdit(false)}
-                    onChange={(value: any) => props.onChange(value, 'date')}
-                    maxLength={5}/>
-            }
+                    onBlur={() => props.onMonthEdit(false)}
+                    onChange={(value: any) => props.onChange(value, 'month')}/>}
+                /
+                {!props.yearEdit ?
+                <span onClick={() => props.onYearEdit(true)}>{props.year}</span> :
+                <InputComponent
+                    width={34 * (props.scale ? props.scale : 1)}
+                    fontSize={16 * (props.scale ? props.scale : 1)}
+                    value={props.year}
+                    scale={props.scale}
+                    type="number"
+                    onKeyPress={handleKeyPress}
+                    onBlur={() => props.onYearEdit(false)}
+                    onChange={(value: any) => props.onChange(value, 'year')}/>}
+            </div>
         </div>
     )
 }

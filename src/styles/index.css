@@ -53,7 +53,6 @@
 
 .component-atm-card-number input {
     width: 100%;
-    letter-spacing: 3px !important;
 }
 
 /* INPUTS */
@@ -63,28 +62,21 @@
 .component-atm-card-cvv input {
     padding: 0;
     border: none;
-    border-bottom: 1px solid #2196F3;
-    caret-color: #2196F3;
-    color: #2196F3;
+    border-bottom: 1px solid #fff;
+    caret-color: #fff;
+    color: #fff;
     font-family: 'CreditCardFont', sans-serif;
     font-weight: normal;
-    letter-spacing: 1.5px;
     outline: none;
     background-color: transparent; /*rgba(255, 255, 255, .7); */
 }
 
-input[type=number]::-webkit-inner-spin-button {
+.component-atm-card-cvv input[type=number]::-webkit-inner-spin-button,
+.component-atm-card-date input[type=number]::-webkit-inner-spin-button, 
+.component-atm-card-number input[type=number]::-webkit-inner-spin-button {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-}
-
-.component-atm-card-number input:focus,
-.component-atm-card-holder input:focus,
-.component-atm-card-date input:focus {
-    /* border-color: #1976D2; */
-    /* box-shadow: 0 1px 5px #1976D2; */
-    transition: all .2s ease-in-out;
 }
 
 /* CARD HOLDER */
@@ -101,7 +93,8 @@ input[type=number]::-webkit-inner-spin-button {
 }
 
 .component-atm-card-holder input {
-    width: auto;
+    font-family: 'Arial','sans-serif';
+    text-transform: uppercase;
 }
 
 .component-atm-card-holder,
@@ -132,12 +125,12 @@ input[type=number]::-webkit-inner-spin-button {
 
 .component-atm-card-cvv input {
     width: 17%;
+    letter-spacing: 1.5px;
 }
 
 /* CARD DATE */
 .component-atm-card-date {
     font-family: 'CreditCardFont', sans-serif;
-    padding-right: 10%;
     font-weight: normal;
     letter-spacing: 1.5px;
     color: #fff;
@@ -150,10 +143,21 @@ input[type=number]::-webkit-inner-spin-button {
 
 .component-atm-card-date input {
     width: auto;
+    letter-spacing: 1.5px;
 }
 
 .component-atm-card-date > div {
     margin: 5px 0;
+}
+
+.component-atm-card-date > div.expired-dates {
+    display: flex;
+    align-items: center;
+}
+
+.component-atm-card-date > div.expired-dates > input {
+    /* margin-right: 2px; */
+    text-align: center;
 }
 
 .component-atm-card-system-logo {
@@ -189,6 +193,10 @@ input[type=number]::-webkit-inner-spin-button {
     background-color: #2d2d2d;
     top: 20%;
     left: 0;
+}
+
+.component-atm-card-magnet.dark {
+    background-color: #5d5d5d;
 }
 
 @keyframes rotateATMCard {

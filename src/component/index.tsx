@@ -9,7 +9,8 @@ import { MasterCardLogo, VisaLogo, MaestroLogo, AmericanExpressLogo, JCBLogo, Di
 const ATMCard = React.forwardRef((props: ATMCardProps, ref) => {
     const [main, setMain] = React.useState<boolean>(true);
     const [number, setNumber] = React.useState<string>(props.number ? props.number : '');
-    const [date, setDate] = React.useState<string>(props.date ? props.date : '');
+    const [year, setYear] = React.useState<number>(props.expiredYear ? props.expiredYear : 0);
+    const [month, setMonth] = React.useState<number>(props.expiredMonth ? props.expiredMonth : 0);
     const [holderName, setHolderName] = React.useState<string>(props.holderName ? props.holderName : '');
     const [cvv, setCvv] = React.useState<string>(props.cvv ? props.cvv : '');
 
@@ -24,19 +25,31 @@ const ATMCard = React.forwardRef((props: ATMCardProps, ref) => {
     const handleChange = (value: string, field: string) => {
         switch (field) {
             case 'number':
-                if (props.onChange) props.onChange({ number: value, date, holder: holderName, cvv })
-                setNumber(value);
+                if (props.onChange) props.onChange({ number: value, month, year, holder: holderName, cvv })
+                if (value.length <= 16) setNumber(value);
                 break;
-            case 'date':
-                if (props.onChange) props.onChange({ number, date: value, holder: holderName, cvv })
-                setDate(value);
+            case 'month':
+                if (props.onChange) {
+                    if (value.length <= 2) {
+                        props.onChange({ number, month: parseInt(value), year, holder: holderName, cvv })
+                        setMonth(parseInt(value));
+                    }
+                }
+                break;
+            case 'year':
+                if (props.onChange) {
+                    if (value.length <= 2) {
+                        setYear(parseInt(value))
+                        props.onChange({ number, year: parseInt(value), month, holder: holderName, cvv })
+                    }
+                }
                 break;
             case 'holderName':
-                if (props.onChange) props.onChange({ number, date, holder: value, cvv })
+                if (props.onChange) props.onChange({ number, month, year, holder: value, cvv })
                 setHolderName(value ? value.toUpperCase() : '');
                 break;
             case 'cvv':
-                if (props.onChange) props.onChange({ number, date, holder: holderName, cvv: value })
+                if (props.onChange) props.onChange({ number, month, year, holder: holderName, cvv: value })
                 if (value.length <= 3) setCvv(value);
                 break;
             default:
@@ -80,13 +93,16 @@ const ATMCard = React.forwardRef((props: ATMCardProps, ref) => {
                 dataColor={props.dataColor}
                 number={number}
                 holderName={holderName}
-                date={date}
+                month={month}
+                year={year}
+                dark={props.dark}
                 scale={props.scale}
                 onChange={handleChange}/> :
             <BackCardData
                 onRotate={handleRotate}
                 dataColor={props.dataColor}
                 cvv={cvv}
+                dark={props.dark}
                 bankLogo={props.bank}
                 system={getSystemLogo()}
                 onChange={handleChange}

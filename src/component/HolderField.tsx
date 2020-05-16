@@ -13,13 +13,16 @@ const HolderField = (props: any) => {
                     color: props.dataColor ? props.dataColor : '' 
                 }}>
                 {!props.holderEdit ?
-                <div onClick={() => props.onHolderEdit(true)}>{props.holderName}</div> :
+                <div onClick={() => props.onHolderEdit(true)}>
+                    {props.holderName ? props.holderName : 'cardholder name'}
+                </div> :
                 <InputComponent
                     scale={props.scale}
                     value={props.holderName}
                     onKeyPress={handleKeyPress}
                     type="text"
-                    fontSize={24 * (props.scale ? props.scale : 1)}
+                    width={`calc(100% - ${110 * (props.scale ? props.scale : 1)}px)`}
+                    fontSize={23 * (props.scale ? props.scale : 1)}
                     onBlur={() => props.onHolderEdit(false)}
                     onChange={(value: any) => props.onChange(value, 'holderName')}/>}
         </div>

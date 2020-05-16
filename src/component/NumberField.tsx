@@ -25,6 +25,7 @@ const NumberField = (props: any) => {
                     onKeyPress={handleKeyPress}
                     maxLength={16}
                     scale={props.scale}
+                    letterSpacing={`${4 * (props.scale ? props.scale : 1)}px`}
                     type="number"
                     onBlur={() => props.onNumberEdit(false)}
                     onChange={(value: any) => props.onChange(value, 'number')}/>

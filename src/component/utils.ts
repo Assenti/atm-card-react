@@ -3,7 +3,8 @@ export const creditMask = (value: string, hidden: boolean = false) => {
         if (hidden) return [value.slice(0,4), '****', '****', value.slice(12,16)];
         return [value.slice(0,4), value.slice(4,8), value.slice(8,12), value.slice(12,16)];
     } else {
-        return [];
+        if (hidden) return ['1234', '****', '****', '1234'];
+        return ['1234','1234','1234','1234'];
     }
 }
 
@@ -11,7 +12,7 @@ export const cvvMask = (value: string) => {
     if (value) {
         return `**${value.slice(2,3)}`;
     } else {
-        return '';
+        return '000';
     }
 }
 
