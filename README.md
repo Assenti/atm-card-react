@@ -79,8 +79,8 @@ export default App;
 
 ## License
 
-[CREDITCARD Font: free for personal usage](https://www.1001freefonts.com/credit-card.font)
-[CREDITCARD Font: Commercial License](http://www.k-type.com/fonts/credit-card/)
+- [CREDITCARD Font: free for personal usage](https://www.1001freefonts.com/credit-card.font)
+- [CREDITCARD Font: Commercial License](http://www.k-type.com/fonts/credit-card/)
 
 [Component usage: MIT Licensed](/LICENSE)
 Copyright (c) 2020 Asset Sultanov
