@@ -9,7 +9,8 @@ const NumberField = (props: any) => {
     return (
         <div className="component-atm-card-number" 
             style={{ 
-                    fontSize: 25 * (props.scale ? props.scale : 1),
+                    fontSize: (props.numberFontSize ? props.numberFontSize : 25) * (props.scale ? props.scale : 1),
+                    fontFamily: props.fontFamily ? props.fontFamily : '',
                     color: props.dataColor ? props.dataColor : '' 
                 }}>{
                 !props.numberEdit ? 
@@ -20,7 +21,8 @@ const NumberField = (props: any) => {
                 </div>
                 :
                 <InputComponent
-                    fontSize={25 * (props.scale ? props.scale : 1)}
+                    fontSize={(props.numberFontSize ? props.numberFontSize : 25) * (props.scale ? props.scale : 1)}
+                    fontFamily={props.fontFamily ? props.fontFamily : ''}
                     value={props.number}
                     onKeyPress={handleKeyPress}
                     maxLength={16}

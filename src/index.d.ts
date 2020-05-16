@@ -7,6 +7,7 @@ export declare interface IconProps {
 }
 
 export declare interface ATMCardProps {
+  fontFamily?: string,
   system?: string,
   bank?: React.ReactNode,
   holderName?: string,
@@ -23,10 +24,12 @@ export declare interface ATMCardProps {
   lifted?: boolean,
   className?: string,
   onChange?: Function,
+  numberFontSize?: number,
   dark?: boolean
 }
 
 export declare interface MainCardDataProps {
+  fontFamily?: string,
   system?: React.ReactNode,
   bankLogo?: React.ReactNode,
   holderName: string,
@@ -40,10 +43,12 @@ export declare interface MainCardDataProps {
   bgColor?: string,
   onChange: Function,
   onRotate: Function,
-  dark?: boolean
+  dark?: boolean,
+  numberFontSize?: number
 }
 
 export declare interface BackCardDataProps {
+  fontFamily?: string,
   cvv: string,
   bankLogo?: React.ReactNode,
   dataColor?: string,
@@ -57,6 +62,7 @@ export declare interface BackCardDataProps {
 }
 
 export declare interface InputComponentProps {
+  fontFamily?: string,
   value: string | number,
   onChange: Function,
   onKeyPress: Function,

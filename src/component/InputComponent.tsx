@@ -17,6 +17,7 @@ const InputComponent = (props: InputComponentProps) => {
         <input 
             style={{ 
                 fontSize: props.fontSize, 
+                fontFamily: props.fontFamily,
                 width: props.width ? props.width : '',
                 letterSpacing: props.letterSpacing
             }}

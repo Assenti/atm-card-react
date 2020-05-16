@@ -4,13 +4,19 @@
   <a aria-label="NPM version" href="https://www.npmjs.com/package/atm-card-react">
     <img alt="" src="https://badgen.net/npm/v/atm-card-react"/>
   </a>
-  <a aria-label="Downloads" href="https://npm-stat.com/charts.html?package=%40assenti%2Frui-components">
+  <a aria-label="Downloads" href="https://npm-stat.com/charts.html?package=atm-card-react">
     <img alt="" src="https://badgen.net/npm/dw/atm-card-react"/>
   </a>
-  <a aria-label="License" href="https://github.com/Assenti/react-ui-components/edit/master/LICENSE">
+  <a aria-label="License" href="https://github.com/Assenti/atm-card-react/blob/master/LICENSE">
     <img alt="" src="https://badgen.net/npm/license/atm-card-react"/>
   </a>
 </p>
+
+|  Card usage samples | Card usage samples  |  
+| - | - | 
+| ![Alt](https://i.ibb.co/NnZBvT8/Screen-Shot-2020-05-16-at-23-25-19.png) | ![Alt](https://i.ibb.co/dMFHNrX/Screen-Shot-2020-05-16-at-23-25-33.png) 
+| ![Alt](https://i.ibb.co/XzmV7YX/Screen-Shot-2020-05-16-at-23-26-07.png) | ![Alt](https://i.ibb.co/3sPsGb5/Screen-Shot-2020-05-16-at-23-25-43.png) |
+
 
 ## Install
 ```bash
@@ -62,6 +68,8 @@ export default App;
 | system | string | ENUM | mastercard, visa, maestro, americanexpress, jcb, dinnersclub, mir | ATM Card payment system |
 | hideDigits | boolean | true/false | Hide ATM Card number |
 | onChange | function | | return { cvv, holder, month, number, year } |
+| fontFamily | string | | Set custom Font |
+| numberFontSize | number | | Set ATM Card number (PAN) custom font size |
 | scale | number | 0 - 1 | Set ATM Card scale |
 | dark | boolean | true/false | Dark mode (applied only for back side magnet) |
 | dataColor | string | hex, rgb(-a) | Data text color |
@@ -69,7 +77,10 @@ export default App;
 | bgImage | string | base64/url | Background image |
 | lifted | boolean | true/false | Elevate ATM Card |
 
-### License
+## License
 
-[MIT Licensed](/LICENSE)
+[CREDITCARD Font: free for personal usage](https://www.1001freefonts.com/credit-card.font)
+[CREDITCARD Font: Commercial License](http://www.k-type.com/fonts/credit-card/)
+
+[Component usage: MIT Licensed](/LICENSE)
 Copyright (c) 2020 Asset Sultanov

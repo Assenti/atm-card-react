@@ -48,6 +48,7 @@ const BackCardData = (props: BackCardDataProps) => {
             <div className="component-atm-card-cvv"
                 style={{ 
                     fontSize: 25 * (props.scale ? props.scale : 1),
+                    fontFamily: props.fontFamily ? props.fontFamily : '',
                     color: props.dataColor ? props.dataColor : '' 
                 }}>
                 <span style={{ fontSize: 18 * (props.scale ? props.scale : 1) }}>CVV CODE:</span>
@@ -58,6 +59,7 @@ const BackCardData = (props: BackCardDataProps) => {
                     }}>{cvvMask(props.cvv)}</div> :
                     <InputComponent
                         type="number"
+                        fontFamily={props.fontFamily ? props.fontFamily : ''}
                         fontSize={25 * (props.scale ? props.scale : 1)}
                         onBlur={() => setCvvEdit(false)}
                         value={props.cvv}

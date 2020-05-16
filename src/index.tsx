@@ -46,6 +46,8 @@ const App: React.FC = () => {
                 expiredYear={22}
                 expiredMonth={11}
                 cvv="019"
+                fontFamily="Arial"
+                numberFontSize={34}
                 bank={<BankLogo/>}
                 bgImage={Image}
                 lifted

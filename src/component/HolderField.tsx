@@ -7,9 +7,10 @@ const HolderField = (props: any) => {
     }
 
     return (
-        <div className={props.holderEdit ? 'component-atm-card-holder edit' : 'component-atm-card-holder'} 
+        <div className="component-atm-card-holder" 
             style={{ 
                     fontSize: 24 * (props.scale ? props.scale : 1),
+                    fontFamily: props.fontFamily ? props.fontFamily : '',
                     color: props.dataColor ? props.dataColor : '' 
                 }}>
                 {!props.holderEdit ?
@@ -21,6 +22,7 @@ const HolderField = (props: any) => {
                     value={props.holderName}
                     onKeyPress={handleKeyPress}
                     type="text"
+                    fontFamily={props.fontFamily ? props.fontFamily : ''}
                     width={`calc(100% - ${110 * (props.scale ? props.scale : 1)}px)`}
                     fontSize={23 * (props.scale ? props.scale : 1)}
                     onBlur={() => props.onHolderEdit(false)}

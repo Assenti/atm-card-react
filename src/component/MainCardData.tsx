@@ -46,6 +46,8 @@ const MainCardData = (props: MainCardDataProps) => {
             </div>
             
             <NumberField
+                numberFontSize={props.numberFontSize}
+                fontFamily={props.fontFamily}
                 hideDigits={props.hideDigits}
                 number={props.number}
                 scale={props.scale}
@@ -55,6 +57,7 @@ const MainCardData = (props: MainCardDataProps) => {
                 onNumberEdit={(flag: boolean) => setNumberEdit(flag)}/>
 
             <HolderField
+                fontFamily={props.fontFamily}
                 holderName={props.holderName}
                 onHolderEdit={(flag: boolean) => setHolderEdit(flag)}
                 holderEdit={holderEdit}
@@ -63,6 +66,7 @@ const MainCardData = (props: MainCardDataProps) => {
                 onChange={props.onChange}/>
 
             <DateField
+                fontFamily={props.fontFamily}
                 year={props.year}
                 month={props.month}
                 onChange={props.onChange}

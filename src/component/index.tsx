@@ -84,6 +84,8 @@ const ATMCard = React.forwardRef((props: ATMCardProps, ref) => {
             ref={(ref as any)}>
             {main ? 
             <MainCardData
+                numberFontSize={props.numberFontSize}
+                fontFamily={props.fontFamily}
                 bankLogo={props.bank}
                 system={getSystemLogo()}
                 image={props.bgImage}
@@ -99,6 +101,7 @@ const ATMCard = React.forwardRef((props: ATMCardProps, ref) => {
                 scale={props.scale}
                 onChange={handleChange}/> :
             <BackCardData
+                fontFamily={props.fontFamily}
                 onRotate={handleRotate}
                 dataColor={props.dataColor}
                 cvv={cvv}

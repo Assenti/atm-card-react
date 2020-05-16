@@ -19,6 +19,7 @@ const DateField = (props: any) => {
         <div className="component-atm-card-date" 
             style={{ 
                 fontSize: 16 * (props.scale ? props.scale : 1),
+                fontFamily: props.fontFamily ? props.fontFamily : '',
                 color: props.dataColor ? props.dataColor : ''
             }}>
             <div style={{ fontSize: 12  * (props.scale ? props.scale : 1) }}>VALID THRU</div>
@@ -31,6 +32,7 @@ const DateField = (props: any) => {
                     width={34 * (props.scale ? props.scale : 1)}
                     fontSize={16 * (props.scale ? props.scale : 1)}
                     value={props.month}
+                    fontFamily={props.fontFamily ? props.fontFamily : ''}
                     scale={props.scale}
                     type="number"
                     onKeyPress={handleKeyPress}
@@ -45,6 +47,7 @@ const DateField = (props: any) => {
                     value={props.year}
                     scale={props.scale}
                     type="number"
+                    fontFamily={props.fontFamily ? props.fontFamily : ''}
                     onKeyPress={handleKeyPress}
                     onBlur={() => props.onYearEdit(false)}
                     onChange={(value: any) => props.onChange(value, 'year')}/>}
