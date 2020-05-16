@@ -1,13 +1,13 @@
 {
   "name": "atm-card-react",
-  "version": "0.0.5",
+  "version": "1.1.0",
   "private": false,
   "description": "ATM Card React component",
-  "main": "lib/index.js",
-  "module": "lib/index.js",
-  "typings": "index.d.ts",
+  "main": "src/lib/index.js",
+  "module": "src/lib/index.js",
+  "typings": "src/index.d.ts",
   "scripts": {
-    "compile": "rm -rf ./lib && tsc",
+    "compile": "tsc",
     "start": "react-scripts start",
     "build": "react-scripts build"
   },
@@ -50,7 +50,7 @@
   },
   "files": [
     "src/styles",
-    "lib",
+    "src/lib",
     "src/index.d.ts"
   ]
 }

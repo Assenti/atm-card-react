@@ -6,10 +6,10 @@ import Image from './image.jpg';
 const App: React.FC = () => {
     const systems = ['mastercard','maestro','visa','americanexpress','jcb','dinersclub','mir'];
     const numbers = [0.5,0.6,0.7,0.8,0.9,1];
-    const [scale, setScale] = React.useState<any>(1);
+    const [scale, setScale] = React.useState<any>(0.9);
     const [system, setSystem] = React.useState<string>(systems[0]);
 
-    const BankLogo = () => <h1 style={{ transform: `scale(${scale})`, fontFamily: 'Arial', color: 'white' }}>Cool Bank Logo</h1>;
+    const BankLogo = () => <h1 style={{ fontFamily: 'Arial', fontSize: 30 * scale, color: 'white' }}>Cool Bank Logo</h1>;
 
     return (
         <div style={{ 
@@ -20,9 +20,9 @@ const App: React.FC = () => {
             alignItems: 'center',
             justifyContent: 'center' 
          }}>
-            <h4 style={{ fontFamily: 'sans-serif' }}>Set ATM Card scale</h4>
+            <h1 style={{ fontFamily: 'sans-serif' }}>ATM Card - React Component</h1>
             <div style={{ display: 'flex', alignItems: 'center', fontFamily: 'sans-serif' }}>
-                0.5
+                Scale ({scale}) :  0.5
                 <input 
                     style={{
                         margin: '10px',
@@ -37,13 +37,11 @@ const App: React.FC = () => {
                     step={0.1}/>
                 1
             </div>
-            <br/>
-            <div style={{ display: 'flex', alignItems: 'center', fontFamily: 'sans-serif' }}>
+            <p style={{ textAlign: 'center' }}>
                 <select onChange={e => setSystem(e.target.value)}>
                     {systems.map((item, index) => <option key={index} value={item}>{item}</option>)}
                 </select>
-            </div>
-            <br/>
+            </p>
             <ATMCard
                 expiredYear={22}
                 expiredMonth={11}
@@ -76,6 +74,18 @@ const App: React.FC = () => {
                 bank={<BankLogo/>}
                 hideDigits
                 lifted
+                system={system}
+                scale={scale}
+                onChange={(data: any) => console.log(data)}/>
+            <br/>
+            <ATMCard
+                expiredYear={22}
+                expiredMonth={11}
+                cvv="019"
+                bank={<BankLogo/>}
+                hideDigits
+                lifted
+                bgColor="silver"
                 system={system}
                 scale={scale}
                 onChange={(data: any) => console.log(data)}/>

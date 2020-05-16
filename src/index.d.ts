@@ -66,8 +66,7 @@ export declare interface InputComponentProps {
   width?: number | string,
   type: "number" | "text" | "password",
   maxLength?: number,
-  letterSpacing?: string,
-  disableAutoFocus?: boolean
+  letterSpacing?: string
 }
 
 declare module 'atm-card-react';

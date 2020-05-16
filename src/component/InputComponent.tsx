@@ -5,7 +5,7 @@ const InputComponent = (props: InputComponentProps) => {
     const inputRef = React.useRef<HTMLInputElement>(null);
 
     React.useEffect(() => {
-        if (inputRef.current && !props.disableAutoFocus) inputRef.current.focus();
+        if (inputRef.current) inputRef.current.focus();
     }, [])
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {

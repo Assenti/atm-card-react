@@ -2,17 +2,17 @@ import * as React from 'react';
 import InputComponent from './InputComponent';
 
 const DateField = (props: any) => {
-    const { month, year } = props;
+    const { month, year, onMonthEdit, onYearEdit } = props;
     const handleKeyPress = (e: React.KeyboardEvent) => {
         if (e.key === 'Enter') {
-            props.onYearEdit(false)
-            props.onMonthEdit(false)
+            onYearEdit(false)
+            onMonthEdit(false)
         }
     }
 
     React.useEffect(() => {
-        if (month.toString().length === 2) props.onMonthEdit(false)
-        if (year.toString().length === 2) props.onYearEdit(false)
+        if (month.toString().length === 2) onMonthEdit(false)
+        if (year.toString().length === 2) onYearEdit(false)
     }, [month, year])
 
     return (
