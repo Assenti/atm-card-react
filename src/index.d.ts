@@ -1,14 +1,15 @@
 import * as React from 'react';
-import ATMCard from './component';
 
 export declare interface IconProps {
   size?: number,
   color?: string
 }
 
+export declare type ATMCardSystem = 'mastercard' | 'maestro' | 'visa' | 'americanexpress' | 'jcb' | 'dinersclub' | 'mir';
+
 export declare interface ATMCardProps {
   fontFamily?: string,
-  system?: string,
+  system?: ATMCardSystem,
   bank?: React.ReactNode,
   holderName?: string,
   number?: string,
@@ -75,6 +76,4 @@ export declare interface InputComponentProps {
   letterSpacing?: string
 }
 
-declare module 'atm-card-react';
-
-export default ATMCard;
+export declare const ATMCard: React.FC<ATMCardProps>;

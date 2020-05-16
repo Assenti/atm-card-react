@@ -35,7 +35,8 @@ const BackCardData = (props: BackCardDataProps) => {
                 backgroundImage: `url(${props.image ? props.image : ''})`,
                 backgroundColor: props.bgColor ? props.bgColor : '',
                 width: 430 * (props.scale ? props.scale : 1),
-                height: 270 * (props.scale ? props.scale : 1)
+                height: 270 * (props.scale ? props.scale : 1),
+                padding: 15 * (props.scale ? props.scale : 1)
             }}>
             <div className="component-atm-card-controls">
                 <i onClick={() => props.onRotate()}>

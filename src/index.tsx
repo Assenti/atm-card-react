@@ -4,7 +4,7 @@ import ATMCard from './component';
 import Image from './image.jpg';
 
 const App: React.FC = () => {
-    const systems = ['mastercard','maestro','visa','americanexpress','jcb','dinersclub','mir'];
+    const systems: any = ['mastercard','maestro','visa','americanexpress','jcb','dinersclub','mir'];
     const numbers = [0.5,0.6,0.7,0.8,0.9,1];
     const [scale, setScale] = React.useState<any>(0.9);
     const [system, setSystem] = React.useState<string>(systems[0]);

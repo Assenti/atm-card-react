@@ -36,7 +36,8 @@ const MainCardData = (props: MainCardDataProps) => {
                 backgroundImage: props.image ? `url(${props.image})` : '',
                 backgroundColor: props.bgColor ? props.bgColor : '',
                 width: 430 * (props.scale ? props.scale : 1),
-                height: 270 * (props.scale ? props.scale : 1)
+                height: 270 * (props.scale ? props.scale : 1),
+                padding: 15 * (props.scale ? props.scale : 1)
             }}>
             <div className="component-atm-card-bank">{props.bankLogo}</div>
             <div className="component-atm-card-controls">

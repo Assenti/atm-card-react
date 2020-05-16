@@ -14,7 +14,6 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 3%;
     box-sizing: border-box;
     background-color: #D4AF37; 	/* #CFB53B; */
     position: relative;
@@ -32,6 +31,7 @@
     font-family: 'CreditCardFont', sans-serif;
     font-weight: normal;
     letter-spacing: 2px;
+    width: 100%;
     color: #fff;
     margin-bottom: 20px;
     text-shadow: .5px .5px #4d4d4d;
