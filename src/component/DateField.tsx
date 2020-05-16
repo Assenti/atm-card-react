@@ -1,29 +1,35 @@
 import * as React from 'react';
-import { Edit } from './icons';
+import InputComponent from './InputComponent';
 
 const DateField = (props: any) => {
+    const handleKeyPress = (e: React.KeyboardEvent) => {
+        if (e.key === 'Enter') props.onDateEdit(false)
+    }
+
+    React.useEffect(() => {
+        if (props.date.length === 5) props.onDateEdit(false)
+    }, [props.date])
+
     return (
-        <div className={props.dateEdit ? 'component-atm-card-date edit' : 'component-atm-card-date'} 
+        <div className="component-atm-card-date" 
             style={{ 
                 fontSize: 18 * (props.scale ? props.scale : 1),
                 color: props.dataColor ? props.dataColor : ''
             }}>
             <div style={{ fontSize: 12  * (props.scale ? props.scale : 1) }}>VALID THRU</div>
             {!props.dateEdit ?
-                props.date :
-                <input 
-                    style={{ 
-                        fontSize: 18 * (props.scale ? props.scale : 1),
-                        width: 80 * (props.scale ? props.scale : 1)
-                    }}
+                <span onClick={() => props.onDateEdit(true)}>{props.date}</span> :
+                <InputComponent
+                    width={80 * (props.scale ? props.scale : 1)}
+                    fontSize={18 * (props.scale ? props.scale : 1)}
                     value={props.date}
-                    maxLength={5}
+                    scale={props.scale}
+                    type="text"
+                    onKeyPress={handleKeyPress}
                     onBlur={() => props.onDateEdit(false)}
-                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => props.onChange(e.target.value, 'date')}/>
+                    onChange={(value: any) => props.onChange(value, 'date')}
+                    maxLength={5}/>
             }
-            <i onClick={() => props.onDateEdit(true)}>
-                <Edit size={22 * (props.scale ? props.scale : 1)} color={props.dataColor ? props.dataColor : ''}/>
-            </i>
         </div>
     )
 }

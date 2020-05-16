@@ -1,19 +1,26 @@
 import * as React from 'react';
-import { Rotate, Edit } from './icons';
+import { Rotate } from './icons';
 import { cvvMask } from './utils';
 import { BackCardDataProps } from '../index.d';
+import InputComponent from './InputComponent';
 
 const BackCardData = (props: BackCardDataProps) => {
     const card = React.useRef<any>();
     const [cvvEdit, setCvvEdit] = React.useState<boolean>(false);
+    const cvvInput = React.useRef<HTMLInputElement>(null);
 
     const handleClick = (e: any) => {
         if (card.current.contains(e.target)) return;
         setCvvEdit(false);
     }
 
+    const handleKeyPress = (e: React.KeyboardEvent) => {
+        if (e.key === 'Enter') setCvvEdit(false)
+    }
+
     React.useEffect(() => {
-        if (props.cvv.length === 3) setCvvEdit(false)
+        if (props.cvv.length === 3) setCvvEdit(false);
+
         document.addEventListener('mousedown', handleClick, true);
 
         return () => {
@@ -36,26 +43,29 @@ const BackCardData = (props: BackCardDataProps) => {
                 </i>
             </div>
             <div className="component-atm-card-magnet" style={{ height: 60 * (props.scale ? props.scale : 1)}}/>
-            <div className={cvvEdit ? 'component-atm-card-cvv edit' : 'component-atm-card-cvv'} 
+            <div className="component-atm-card-bank-back">{props.bankLogo}</div>
+            <div className="component-atm-card-cvv"
                 style={{ 
                     fontSize: 25 * (props.scale ? props.scale : 1),
                     color: props.dataColor ? props.dataColor : '' 
                 }}>
+                <span style={{ fontSize: 18 * (props.scale ? props.scale : 1) }}>CVV CODE:</span>
                 {!cvvEdit ?
-                    `CVV CODE: ${cvvMask(props.cvv)}` :
-                    <input 
-                        style={{ fontSize: 25 * (props.scale ? props.scale : 1) }}
-                        value={props.cvv}
-                        max={999}
+                    <div onClick={() => {
+                        setCvvEdit(true)
+                        cvvInput.current?.focus()
+                    }}>{cvvMask(props.cvv)}</div> :
+                    <InputComponent
                         type="number"
+                        fontSize={25 * (props.scale ? props.scale : 1)}
                         onBlur={() => setCvvEdit(false)}
-                        onChange={(e: React.ChangeEvent<HTMLInputElement>) => props.onChange(e.target.value, 'cvv')}/>
+                        value={props.cvv}
+                        scale={props.scale}
+                        onKeyPress={handleKeyPress}
+                        onChange={(value: any) => props.onChange(value, 'cvv')}/>
                 }
-                <i onClick={() => setCvvEdit(true)}>
-                    <Edit size={22 * (props.scale ? props.scale : 1)} color={props.dataColor ? props.dataColor : ''}/>
-                </i>
             </div>
-            <div className="component-atm-card-system-logo">{props.systemLogo}</div>
+            <div className="component-atm-card-system-logo">{props.system}</div>
         </div>
     )
 }

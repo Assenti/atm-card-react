@@ -1,6 +1,5 @@
 import * as React from 'react';
-import { creditMask } from './utils';
-import { Rotate, Edit, MasterCardLogo, VisaLogo, MaestroLogo, AmericanExpressLogo, JCBLogo, DinersClubLogo, MirLogo, Chip } from './icons';
+import { Rotate } from './icons';
 import { MainCardDataProps } from '../index.d';
 import DateField from './DateField';
 import NumberField from './NumberField';
@@ -17,27 +16,6 @@ const MainCardData = (props: MainCardDataProps) => {
         setNumberEdit(false);
         setDateEdit(false);
         setHolderEdit(false);
-    }
-
-    const getSystemLogo = () => {
-        switch (props.system) {
-            case 'mastercard':
-                return <MasterCardLogo size={80 * (props.scale ? props.scale : 1)}/>;
-            case 'visa':
-                return <VisaLogo size={80 * (props.scale ? props.scale : 1)}/>;
-            case 'maestro':
-                return <MaestroLogo size={65 * (props.scale ? props.scale : 1)}/>;
-            case 'americanexpress':
-                return <AmericanExpressLogo size={100 * (props.scale ? props.scale : 1)}/>;
-            case 'jcb':
-                return <JCBLogo size={70 * (props.scale ? props.scale : 1)}/>;
-            case 'dinersclub':
-                return <DinersClubLogo size={70 * (props.scale ? props.scale : 1)}/>;
-            case 'mir':
-                return <MirLogo size={100 * (props.scale ? props.scale : 1)}/>;
-            default:
-                return null;
-        }
     }
 
     React.useEffect(() => {
@@ -89,7 +67,7 @@ const MainCardData = (props: MainCardDataProps) => {
                 dateEdit={dateEdit}
                 onDateEdit={(flag: boolean) => setDateEdit(flag)} 
                 dataColor={props.dataColor}/>
-            <div className="component-atm-card-system-logo">{getSystemLogo()}</div>
+            <div className="component-atm-card-system-logo">{props.system}</div>
         </div>
     )
 }

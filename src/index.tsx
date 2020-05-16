@@ -1,7 +1,6 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import ATMCard from './component';
-import { VisaLogo } from "./component/icons";
 
 const App: React.FC = () => {
     const systems = ['mastercard','maestro','visa','americanexpress','jcb','dinersclub','mir'];
@@ -43,9 +42,8 @@ const App: React.FC = () => {
             </div>
             <br/>
             <ATMCard
-                bankLogo={<VisaLogo size={80}/>}
                 number="1234567890101112"
-                holderName="John Doe"
+                holderName="asset sultanov"
                 date="01/20"
                 cvv="019"
                 hideDigits

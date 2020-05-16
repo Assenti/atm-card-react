@@ -4,6 +4,7 @@ import { strinfigyClassObject } from './utils';
 import MainCardData from './MainCardData';
 import BackCardData from './BackCardData';
 import { ATMCardProps } from '../index.d';
+import { MasterCardLogo, VisaLogo, MaestroLogo, AmericanExpressLogo, JCBLogo, DinersClubLogo, MirLogo } from './icons';
 
 const ATMCard = React.forwardRef((props: ATMCardProps, ref) => {
     const [main, setMain] = React.useState<boolean>(true);
@@ -36,10 +37,31 @@ const ATMCard = React.forwardRef((props: ATMCardProps, ref) => {
                 break;
             case 'cvv':
                 if (props.onChange) props.onChange({ number, date, holder: holderName, cvv: value })
-                setCvv(value);
+                if (value.length <= 3) setCvv(value);
                 break;
             default:
                 break;
+        }
+    }
+
+    const getSystemLogo = () => {
+        switch (props.system) {
+            case 'mastercard':
+                return <MasterCardLogo size={80 * (props.scale ? props.scale : 1)}/>;
+            case 'visa':
+                return <VisaLogo size={80 * (props.scale ? props.scale : 1)}/>;
+            case 'maestro':
+                return <MaestroLogo size={65 * (props.scale ? props.scale : 1)}/>;
+            case 'americanexpress':
+                return <AmericanExpressLogo size={100 * (props.scale ? props.scale : 1)}/>;
+            case 'jcb':
+                return <JCBLogo size={70 * (props.scale ? props.scale : 1)}/>;
+            case 'dinersclub':
+                return <DinersClubLogo size={70 * (props.scale ? props.scale : 1)}/>;
+            case 'mir':
+                return <MirLogo size={100 * (props.scale ? props.scale : 1)}/>;
+            default:
+                return null;
         }
     }
 
@@ -49,7 +71,8 @@ const ATMCard = React.forwardRef((props: ATMCardProps, ref) => {
             ref={(ref as any)}>
             {main ? 
             <MainCardData
-                system={props.system}
+                bankLogo={props.bank}
+                system={getSystemLogo()}
                 image={props.bgImage}
                 bgColor={props.bgColor}
                 hideDigits={props.hideDigits}
@@ -64,6 +87,8 @@ const ATMCard = React.forwardRef((props: ATMCardProps, ref) => {
                 onRotate={handleRotate}
                 dataColor={props.dataColor}
                 cvv={cvv}
+                bankLogo={props.bank}
+                system={getSystemLogo()}
                 onChange={handleChange}
                 image={props.bgImage}
                 bgColor={props.bgColor}

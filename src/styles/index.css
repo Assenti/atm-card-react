@@ -3,10 +3,6 @@
     src: url('./CREDCARD.ttf');
 }
 
-.component-atm-card-container {
-
-}
-
 .component-atm-card {
     font-family: 'CreditCardFont', sans-serif;
     border-radius: 12px;
@@ -27,74 +23,54 @@
     -moz-animation: rotateATMCard .6s ease-in-out;
 }
 
-.component-atm-card.back div.component-atm-card-holder {
-    padding-top: 10%;
-}
-
 .component-atm-card-container.lifted div.component-atm-card {
-    box-shadow: 0 1px 2px rgba(0,0,0, .4);
+    box-shadow: 0 1px 2px rgba(247,247,247,.4);
 }
 
+/* CARD NUMBER */
 .component-atm-card-number {
     font-family: 'CreditCardFont', sans-serif;
     font-weight: normal;
-    letter-spacing: 1.5px;
+    letter-spacing: 2px;
     color: #fff;
     margin-bottom: 20px;
     text-shadow: .5px .5px #4d4d4d;
-}
-
-.component-atm-card-number i,
-.component-atm-card-holder i,
-.component-atm-card-date i,
-.component-atm-card-cvv i {
-    display: none;
     cursor: pointer;
-    margin-left: 3%;
+    position: relative;
+}
+
+.component-atm-card-number > div {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.component-atm-card-number > span {
     position: absolute;
+    right: 0;
+    top: calc(100% + 5px);
 }
 
-.component-atm-card-date i {
-    margin-left: 2%;
+.component-atm-card-number input {
+    width: 100%;
+    letter-spacing: 3px !important;
 }
 
-.component-atm-card-number:not(.edit):hover i,
-.component-atm-card-holder:not(.edit):hover i,
-.component-atm-card-date:not(.edit):hover i,
-.component-atm-card-cvv:not(.edit):hover i {
-    display: inline-block;
-    transition: all .3s ease-in-out;
-}
-
+/* INPUTS */
 .component-atm-card-number input,
 .component-atm-card-holder input,
 .component-atm-card-date input,
 .component-atm-card-cvv input {
-    padding: 5px 10px;
-    padding-bottom: 2px;
+    padding: 0;
     border: none;
-    border-radius: 6px;
-    width: 90%;
+    border-bottom: 1px solid #2196F3;
+    caret-color: #2196F3;
+    color: #2196F3;
     font-family: 'CreditCardFont', sans-serif;
     font-weight: normal;
     letter-spacing: 1.5px;
     outline: none;
     background-color: transparent; /*rgba(255, 255, 255, .7); */
-}
-
-.component-atm-card-holder input,
-.component-atm-card-date input {
-    padding-top: 0;
-    padding-bottom: 5px;
-}
-
-.component-atm-card-date input {
-    padding-top: 3px;
-    padding-bottom: 2px;
-}
-
-.component-atm-card-cvv input {
-    width: 25%;
 }
 
 input[type=number]::-webkit-inner-spin-button {
@@ -111,6 +87,7 @@ input[type=number]::-webkit-inner-spin-button {
     transition: all .2s ease-in-out;
 }
 
+/* CARD HOLDER */
 .component-atm-card-holder {
     position: absolute;
     display: block;
@@ -119,21 +96,45 @@ input[type=number]::-webkit-inner-spin-button {
     left: 4%;
 }
 
+.component-atm-card-holder > div {
+    cursor: pointer;
+}
+
+.component-atm-card-holder input {
+    width: auto;
+}
+
 .component-atm-card-holder,
 .component-atm-card-cvv {
     font-family: 'CreditCardFont', sans-serif;
     font-weight: normal;
     text-transform: uppercase;
-    letter-spacing: 1.5px;
+    letter-spacing: 1.4px;
     padding-bottom: 5px;
     color: #fff;
     text-shadow: .5px .5px #4d4d4d;
 }
 
+/* CARD CVV */
 .component-atm-card-cvv {
-    margin-top: 10px;
+    position: absolute;
+    width: 100%;
+    bottom: 10%;
+    left: 4%;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
 }
 
+.component-atm-card-cvv > span {
+    margin-right: 10px;
+}
+
+.component-atm-card-cvv input {
+    width: 17%;
+}
+
+/* CARD DATE */
 .component-atm-card-date {
     font-family: 'CreditCardFont', sans-serif;
     padding-right: 10%;
@@ -144,11 +145,15 @@ input[type=number]::-webkit-inner-spin-button {
     position: absolute;
     left: 4%;
     bottom: 25%;
+    cursor: pointer;
+}
+
+.component-atm-card-date input {
+    width: auto;
 }
 
 .component-atm-card-date > div {
-    margin-top: 2%;
-    margin-bottom: 2%;
+    margin: 5px 0;
 }
 
 .component-atm-card-system-logo {
@@ -169,6 +174,12 @@ input[type=number]::-webkit-inner-spin-button {
 .component-atm-card-bank {
     position: absolute;
     top: 4%;
+    left: 4%;
+}
+
+.component-atm-card-bank-back {
+    position: absolute;
+    bottom: 30%;
     left: 4%;
 }
 

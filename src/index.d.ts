@@ -6,11 +6,9 @@ export declare interface IconProps {
   color?: string
 }
 
-export declare type ATMCardScale = 0.5 | 0.6 | 0.7 | 0.8 | 0.9 | 1;
-
 export declare interface ATMCardProps {
   system?: string,
-  bankLogo?: React.ReactNode,
+  bank?: React.ReactNode,
   holderName?: string,
   number?: string,
   date?: string,
@@ -27,7 +25,7 @@ export declare interface ATMCardProps {
 }
 
 export declare interface MainCardDataProps {
-  system?: string,
+  system?: React.ReactNode,
   bankLogo?: React.ReactNode,
   holderName: string,
   number: string,
@@ -38,18 +36,32 @@ export declare interface MainCardDataProps {
   image?: string,
   bgColor?: string,
   onChange: Function,
-  onRotate: Function
+  onRotate: Function,
+
 }
 
 export declare interface BackCardDataProps {
   cvv: string,
+  bankLogo?: React.ReactNode,
   dataColor?: string,
   image?: string,
   scale?: ATMCardScale,
   bgColor?: string,
-  systemLogo?: React.ReactNode,
+  system?: React.ReactNode,
   onChange: Function,
   onRotate: Function
+}
+
+declare export interface InputComponentProps {
+  value: string | number,
+  onChange: Function,
+  onKeyPress: Function,
+  onBlur: Function,
+  fontSize: number,
+  scale: number,
+  width?: number,
+  type: "number" | "text" | "password",
+  maxLength?: number
 }
 
 declare module 'atm-card-react';

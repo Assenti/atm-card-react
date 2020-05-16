@@ -1,29 +1,39 @@
 import * as React from 'react'
 import { creditMask } from './utils';
-import { Edit } from './icons';
+import InputComponent from './InputComponent';
 
 const NumberField = (props: any) => {
+    const handleKeyPress = (e: React.KeyboardEvent) => {
+        if (e.key === 'Enter') props.onNumberEdit(false)
+    }
     return (
-        <div className={props.numberEdit ? 'component-atm-card-number edit' : 'component-atm-card-number'} 
+        <div className="component-atm-card-number" 
             style={{ 
-                fontSize: 25 * (props.scale ? props.scale : 1),
-                color: props.dataColor ? props.dataColor : '' 
-            }}>{
+                    fontSize: 25 * (props.scale ? props.scale : 1),
+                    color: props.dataColor ? props.dataColor : '' 
+                }}>{
                 !props.numberEdit ? 
-                creditMask(props.number, props.hideDigits) : 
-                <input 
-                    style={{ 
-                        fontSize: 25 * (props.scale ? props.scale : 1),
-                        color: props.dataColor ? props.dataColor : ''
-                    }}
+                <div onClick={() => props.onNumberEdit(true)}>
+                    {creditMask(props.number, props.hideDigits)
+                    .map((item: string, index: number) => 
+                    <div key={index}>{item}</div>)} 
+                </div>
+                :
+                <InputComponent
+                    fontSize={25 * (props.scale ? props.scale : 1)}
                     value={props.number}
+                    onKeyPress={handleKeyPress}
                     maxLength={16}
+                    scale={props.scale}
+                    type="number"
                     onBlur={() => props.onNumberEdit(false)}
-                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => props.onChange(e.target.value, 'number')}/>
+                    onChange={(value: any) => props.onChange(value, 'number')}/>
             }
-            <i onClick={() => props.onNumberEdit(true)}>
-                <Edit size={26 * (props.scale ? props.scale : 1)} color={props.dataColor ? props.dataColor : ''}/>
-            </i>
+            {props.numberEdit && 
+                <span 
+                    style={{ 
+                        fontSize: 10 * (props.scale ? props.scale : 1
+                        )}}>{props.number.length} / 16</span>}
         </div>
     )
 }
