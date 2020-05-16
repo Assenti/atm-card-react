@@ -1,5 +1,17 @@
 # ATM CARD - React component
 
+<p align="center">
+  <a aria-label="NPM version" href="https://www.npmjs.com/package/atm-card-react">
+    <img alt="" src="https://badgen.net/npm/v/atm-card-react"/>
+  </a>
+  <a aria-label="Downloads" href="https://npm-stat.com/charts.html?package=%40assenti%2Frui-components">
+    <img alt="" src="https://badgen.net/npm/dw/atm-card-react"/>
+  </a>
+  <a aria-label="License" href="https://github.com/Assenti/react-ui-components/edit/master/LICENSE">
+    <img alt="" src="https://badgen.net/npm/license/atm-card-react"/>
+  </a>
+</p>
+
 ## Install
 ```bash
 # Install package from NPM
