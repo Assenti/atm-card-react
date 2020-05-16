@@ -37,8 +37,8 @@ import ATMCard from 'atm-card-react';
 
 function App() {
     const [number, setNumber] = useState<string>('');
-    const [month, setMonth] = useState<string>('');
-    const [year, setYear] = useState<string>('');
+    const [month, setMonth] = useState<number>(2);
+    const [year, setYear] = useState<number>(22);
     const [holder, setHolder] = useState<string>('');
     const [cvv, setCvv] = useState<string>('');
 
