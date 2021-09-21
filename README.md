@@ -55,7 +55,7 @@ function App() {
               bankLogo={
                 <h1 style={{ 
                   fontFamily: 'Arial', 
-                  fontSize: 30 * scale, 
+                  fontSize: 30, 
                   color: 'white' 
                 }}>Cool Bank Logo</h1>
               }
