@@ -1,7 +1,7 @@
 import * as React from 'react';
 import InputComponent from './InputComponent';
 
-const HolderField = (props: any) => {
+const HolderField: React.FC<any> = (props) => {
     const handleKeyPress = (e: React.KeyboardEvent) => {
         if (e.key === 'Enter') props.onHolderEdit(false)
     }

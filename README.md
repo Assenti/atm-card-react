@@ -47,11 +47,28 @@ function App() {
     return (
         <>
             <ATMCard
-                number={number}
-                month={month}
-                year={year}
-                holder={holder}
-                cvv={cvv}>
+              year={year}
+              month={month}
+              cvv={cvv}
+              number={number}
+              holderName={holder}
+              bankLogo={
+                <h1 style={{ 
+                  fontFamily: 'Arial', 
+                  fontSize: 30 * scale, 
+                  color: 'white' 
+                }}>Cool Bank Logo</h1>
+              }
+              lifted
+              system={system}
+              scale={scale}
+              onChange={(data) => {
+                setNumber(data.number);
+                setCvv(data.cvv);
+                setMonth(data.month);
+                setYear(data.year);
+                setHolder(data.holder);
+              }}/>
         </>
     );
 }
@@ -62,11 +79,11 @@ export default App;
 | Prop | Type | Value | Description |
 | --- | --- | --- | --- |
 | number | string | 1234123412341234 | ATM Card number (PAN) (16 digits) |
-| expiredMonth | number | 1 |ATM Card expired month (2 digits)|
-| expiredYear | number | 22 | ATM Card expired year (2 digits)|
-| holder | string | John Doe |ATM Card holder name |
+| month | number | 1 |ATM Card expired month (2 digits)|
+| year | number | 22 | ATM Card expired year (2 digits)|
+| holderName | string | John Doe |ATM Card holder name |
 | cvv | string | 000 | ATM Card cvv/cvv2 code (3 digits)|
-| bank | ReactNode | | ATM Card bank issuer data |
+| bankLogo | ReactNode | | ATM Card bank issuer data |
 | system | string | ENUM | mastercard, visa, maestro, americanexpress, jcb, dinnersclub, mir | ATM Card payment system |
 | hideDigits | boolean | true/false | Hide ATM Card number |
 | onChange | function | | return { cvv, holder, month, number, year } |

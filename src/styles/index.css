@@ -7,7 +7,6 @@
     font-family: 'CreditCardFont', sans-serif;
     border-radius: 12px;
     font-weight: normal;
-    border: .5px solid #ccc;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -23,7 +22,7 @@
 }
 
 .component-atm-card-container.lifted div.component-atm-card {
-    box-shadow: 0 1px 2px rgba(247,247,247,.4);
+    box-shadow: 0 0 10px rgba(0,0,0,.2);
 }
 
 /* CARD NUMBER */
@@ -86,10 +85,12 @@
     width: 100%;
     bottom: 6.5%;
     left: 4%;
+    text-align: left;
 }
 
 .component-atm-card-holder > div {
     cursor: pointer;
+    text-align: left;
 }
 
 .component-atm-card-holder input {

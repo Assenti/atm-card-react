@@ -1,7 +1,7 @@
 import * as React from 'react';
 import InputComponent from './InputComponent';
 
-const DateField = (props: any) => {
+const DateField: React.FC<any> = (props) => {
     const { month, year, onMonthEdit, onYearEdit } = props;
     const handleKeyPress = (e: React.KeyboardEvent) => {
         if (e.key === 'Enter') {

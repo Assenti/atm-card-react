@@ -1,13 +1,19 @@
-import * as React from "react";
-import * as ReactDOM from "react-dom";
+import React from "react";
+import ReactDOM from "react-dom";
 import ATMCard from './component';
-import Image from './image.jpg';
 
 const App: React.FC = () => {
     const systems: any = ['mastercard','maestro','visa','americanexpress','jcb','dinersclub','mir'];
     const numbers = [0.5,0.6,0.7,0.8,0.9,1];
     const [scale, setScale] = React.useState<any>(0.9);
     const [system, setSystem] = React.useState<string>(systems[0]);
+
+    // ATM Card data vars
+    const [number, setNumber] = React.useState<string>('');
+    const [holder, setHolder] = React.useState<string>('');
+    const [cvv, setCvv] = React.useState<string>('');
+    const [month, setMonth] = React.useState<number>(1);
+    const [year, setYear] = React.useState<number>(21);
 
     const BankLogo = () => <h1 style={{ fontFamily: 'Arial', fontSize: 30 * scale, color: 'white' }}>Cool Bank Logo</h1>;
 
@@ -43,21 +49,31 @@ const App: React.FC = () => {
                 </select>
             </p>
             <ATMCard
-                expiredYear={22}
-                expiredMonth={1}
-                cvv="019"
-                bank={<BankLogo/>}
-                bgImage={Image}
+                year={year}
+                month={month}
+                cvv={cvv}
+                number={number}
+                holderName={holder}
+                bankLogo={<BankLogo/>}
+                bgImage="https://images.unsplash.com/photo-1519335337423-a3357c2cd12e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
                 lifted
                 system={system}
                 scale={scale}
-                onChange={(data: any) => console.log(data)}/>
+                onChange={(data) => {
+                    setNumber(data.number);
+                    setCvv(data.cvv);
+                    setMonth(data.month);
+                    setYear(data.year);
+                    setHolder(data.holder);
+                }}/>
             <br/>
             <ATMCard
-                expiredYear={22}
-                expiredMonth={11}
-                cvv="019"
-                bank={<BankLogo/>}
+                year={year}
+                month={month}
+                cvv={cvv}
+                number={number}
+                holderName={holder}
+                bankLogo={<BankLogo/>}
                 hideDigits
                 bgColor="#2d2d2d"
                 dataColor="silver"
@@ -65,30 +81,52 @@ const App: React.FC = () => {
                 lifted
                 system={system}
                 scale={scale}
-                onChange={(data: any) => console.log(data)}/>
+                onChange={(data) => {
+                    setNumber(data.number);
+                    setCvv(data.cvv);
+                    setMonth(data.month);
+                    setYear(data.year);
+                    setHolder(data.holder);
+                }}/>
             <br/>
             <ATMCard
-                expiredYear={22}
-                expiredMonth={11}
-                cvv="019"
-                bank={<BankLogo/>}
+                year={year}
+                month={month}
+                cvv={cvv}
+                number={number}
+                holderName={holder}
+                bankLogo={<BankLogo/>}
                 hideDigits
                 lifted
                 system={system}
                 scale={scale}
-                onChange={(data: any) => console.log(data)}/>
+                onChange={(data) => {
+                    setNumber(data.number);
+                    setCvv(data.cvv);
+                    setMonth(data.month);
+                    setYear(data.year);
+                    setHolder(data.holder);
+                }}/>
             <br/>
             <ATMCard
-                expiredYear={22}
-                expiredMonth={11}
-                cvv="019"
-                bank={<BankLogo/>}
+                year={year}
+                month={month}
+                cvv={cvv}
+                number={number}
+                holderName={holder}
+                bankLogo={<BankLogo/>}
                 hideDigits
                 lifted
                 bgColor="silver"
                 system={system}
                 scale={scale}
-                onChange={(data: any) => console.log(data)}/>
+                onChange={(data) => {
+                    setNumber(data.number);
+                    setCvv(data.cvv);
+                    setMonth(data.month);
+                    setYear(data.year);
+                    setHolder(data.holder);
+                }}/>
         </div>
     )
 }

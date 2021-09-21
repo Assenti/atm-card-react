@@ -1,11 +1,11 @@
-import * as React from 'react';
+import React from 'react';
 import { Rotate } from './icons';
 import { MainCardDataProps } from '../index.d';
 import DateField from './DateField';
 import NumberField from './NumberField';
 import HolderField from './HolderField';
 
-const MainCardData = (props: MainCardDataProps) => {
+const MainCardData: React.FC<MainCardDataProps> = (props) => {
     const card = React.useRef<any>(null);
     const [numberEdit, setNumberEdit] = React.useState<boolean>(false);
     const [holderEdit, setHolderEdit] = React.useState<boolean>(false);
@@ -21,7 +21,7 @@ const MainCardData = (props: MainCardDataProps) => {
     }
 
     React.useEffect(() => {
-        if (props.number.length === 16) setNumberEdit(false)
+        if (props.number?.length === 16) setNumberEdit(false)
         document.addEventListener('mousedown', handleClick, true);
 
         return () => {
@@ -33,7 +33,7 @@ const MainCardData = (props: MainCardDataProps) => {
         <div className="component-atm-card"
             ref={card} 
             style={{ 
-                backgroundImage: props.image ? `url(${props.image})` : '',
+                backgroundImage: props.bgImage ? `url(${props.bgImage})` : '',
                 backgroundColor: props.bgColor ? props.bgColor : '',
                 width: 430 * (props.scale ? props.scale : 1),
                 height: 270 * (props.scale ? props.scale : 1),
@@ -41,7 +41,7 @@ const MainCardData = (props: MainCardDataProps) => {
             }}>
             <div className="component-atm-card-bank">{props.bankLogo}</div>
             <div className="component-atm-card-controls">
-                <i onClick={() => props.onRotate()}>
+                <i onClick={() => props.onRotate ? props.onRotate() : {}}>
                     <Rotate size={34 * (props.scale ? props.scale : 1)} color={props.dataColor ? props.dataColor : ''}/>
                 </i>
             </div>

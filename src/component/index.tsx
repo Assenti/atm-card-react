@@ -6,11 +6,11 @@ import BackCardData from './BackCardData';
 import { ATMCardProps } from '../index.d';
 import { MasterCardLogo, VisaLogo, MaestroLogo, AmericanExpressLogo, JCBLogo, DinersClubLogo, MirLogo } from './icons';
 
-const ATMCard = React.forwardRef((props: ATMCardProps, ref) => {
+const ATMCard = React.forwardRef<ATMCardProps, any>((props, ref) => {
     const [main, setMain] = React.useState<boolean>(true);
     const [number, setNumber] = React.useState<string>(props.number ? props.number : '');
-    const [year, setYear] = React.useState<number>(props.expiredYear ? props.expiredYear : 0);
-    const [month, setMonth] = React.useState<number>(props.expiredMonth ? props.expiredMonth : 0);
+    const [year, setYear] = React.useState<number>(props.year ? props.year : 0);
+    const [month, setMonth] = React.useState<number>(props.month ? props.month : 0);
     const [holderName, setHolderName] = React.useState<string>(props.holderName ? props.holderName : '');
     const [cvv, setCvv] = React.useState<string>(props.cvv ? props.cvv : '');
 
@@ -86,9 +86,9 @@ const ATMCard = React.forwardRef((props: ATMCardProps, ref) => {
             <MainCardData
                 numberFontSize={props.numberFontSize}
                 fontFamily={props.fontFamily}
-                bankLogo={props.bank}
+                bankLogo={props.bankLogo}
                 system={getSystemLogo()}
-                image={props.bgImage}
+                bgImage={props.bgImage}
                 bgColor={props.bgColor}
                 hideDigits={props.hideDigits}
                 onRotate={handleRotate}
@@ -106,10 +106,10 @@ const ATMCard = React.forwardRef((props: ATMCardProps, ref) => {
                 dataColor={props.dataColor}
                 cvv={cvv}
                 dark={props.dark}
-                bankLogo={props.bank}
+                bankLogo={props.bankLogo}
                 system={getSystemLogo()}
                 onChange={handleChange}
-                image={props.bgImage}
+                bgImage={props.bgImage}
                 bgColor={props.bgColor}
                 scale={props.scale}/>}
         </div>

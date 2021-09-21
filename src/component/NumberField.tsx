@@ -2,7 +2,7 @@ import * as React from 'react'
 import { creditMask } from './utils';
 import InputComponent from './InputComponent';
 
-const NumberField = (props: any) => {
+const NumberField: React.FC<any> = (props) => {
     const handleKeyPress = (e: React.KeyboardEvent) => {
         if (e.key === 'Enter') props.onNumberEdit(false)
     }

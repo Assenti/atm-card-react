@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { InputComponentProps } from '../index.d';
 
-const InputComponent = (props: InputComponentProps) => {
+const InputComponent: React.FC<InputComponentProps> = (props) => {
     const inputRef = React.useRef<HTMLInputElement>(null);
 
     React.useEffect(() => {

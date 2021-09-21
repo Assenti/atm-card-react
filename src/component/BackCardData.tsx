@@ -4,7 +4,7 @@ import { cvvMask } from './utils';
 import { BackCardDataProps } from '../index.d';
 import InputComponent from './InputComponent';
 
-const BackCardData = (props: BackCardDataProps) => {
+const BackCardData: React.FC<BackCardDataProps> = (props) => {
     const card = React.useRef<any>();
     const [cvvEdit, setCvvEdit] = React.useState<boolean>(false);
     const cvvInput = React.useRef<HTMLInputElement>(null);
@@ -32,14 +32,14 @@ const BackCardData = (props: BackCardDataProps) => {
         <div className="component-atm-card back"
             ref={card} 
             style={{ 
-                backgroundImage: `url(${props.image ? props.image : ''})`,
+                backgroundImage: `url(${props.bgImage ? props.bgImage : ''})`,
                 backgroundColor: props.bgColor ? props.bgColor : '',
                 width: 430 * (props.scale ? props.scale : 1),
                 height: 270 * (props.scale ? props.scale : 1),
                 padding: 15 * (props.scale ? props.scale : 1)
             }}>
             <div className="component-atm-card-controls">
-                <i onClick={() => props.onRotate()}>
+                <i onClick={() => props.onRotate ? props.onRotate() : {}}>
                     <Rotate size={34 * (props.scale ? props.scale : 1)} color={props.dataColor ? props.dataColor : ''}/>
                 </i>
             </div>
