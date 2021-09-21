@@ -43,6 +43,7 @@ function App() {
     const [year, setYear] = useState<number>(22);
     const [holder, setHolder] = useState<string>('');
     const [cvv, setCvv] = useState<string>('');
+    const [holder, setHolder] = useState<string>('');
 
     return (
         <>
