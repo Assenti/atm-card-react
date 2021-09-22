@@ -43,7 +43,6 @@ function App() {
     const [year, setYear] = useState<number>(22);
     const [holder, setHolder] = useState<string>('');
     const [cvv, setCvv] = useState<string>('');
-    const [holder, setHolder] = useState<string>('');
 
     return (
         <>
@@ -61,9 +60,8 @@ function App() {
                 }}>Cool Bank Logo</h1>
               }
               lifted
-              system={system}
-              scale={scale}
-              onChange={(data) => {
+              system="mastercard"
+              onChange={(data: any) => {
                 setNumber(data.number);
                 setCvv(data.cvv);
                 setMonth(data.month);
